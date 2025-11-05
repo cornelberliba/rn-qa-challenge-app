@@ -27,20 +27,11 @@
       },
       "android": {
         "resourceClass": "medium",
-        "buildType": "apk",
-        "versionCode": "auto"
+        "buildType": "apk"
       },
       "env": {
         "NODE_ENV": "production"
       }
-    }
-  },
-  "update": {
-    "development": {
-      "channel": "development"
-    },
-    "preview": {
-      "channel": "preview"
     }
   }
 }
