@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "expo-shadcn",
-    "slug": "expo-shadcn",
+    "name": "QA Automation Challenge",
+    "slug": "qa-automation-challenge",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "qa-automation-challenge",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -16,13 +16,16 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.exposhadcn"
+      "bundleIdentifier": "com.cornelberliba.qaAutomationChallenge",
+      "buildNumber": "1"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.cornelberliba.qaAutomationChallenge",
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
@@ -32,6 +35,11 @@
     "plugins": ["expo-router", "expo-dev-client"],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": ""
+      }
     }
   }
 }
