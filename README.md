@@ -10,15 +10,21 @@ This React Native app is built specifically for QA automation testing challenges
 - **Home Screen**: User dashboard
 - **Intentional Bugs**: Deliberate bugs included for testing purposes
 
+## 🔗 Quick Links
+
+- **GitHub Repository**: [https://github.com/cornelberliba/rn-qa-challenge-app](https://github.com/cornelberliba/rn-qa-challenge-app)
+- **Latest APK Build**: [Download from Expo](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds/da3bbeaa-7fcf-49a8-8275-b0cc861d4002)
+- **Expo Dashboard (All Builds)**: [View All Builds](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds)
+
 ## 📥 Download & Installation
 
 ### Option 1: Download APK from Expo
 
-**Latest Build:** [Download APK from Expo Dashboard](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds)
+**Latest Build:** [Download APK from Expo](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds/da3bbeaa-7fcf-49a8-8275-b0cc861d4002)
 
-> **Direct Link**: Once builds are available, you can download the APK directly from the Expo dashboard. Contact the development team if you need access.
+> **Direct Link**: Click the link above to download the latest APK build directly.
 
-> **Note**: You need access to the Expo project. Contact the development team for access or download link.
+> **Note**: You can also view all builds on the [Expo Dashboard](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds).
 
 ### Option 2: Build Locally
 
@@ -26,7 +32,7 @@ If you have access to the repository:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/cornelberliba/rn-qa-challenge-app.git
 cd rn-qa-challenge-app
 
 # Install dependencies
@@ -307,7 +313,9 @@ appId: com.cornelberliba.qaAutomationChallenge
 
 ## 🔗 Useful Links
 
-- **Expo Dashboard**: [View Builds](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds)
+- **GitHub Repository**: [https://github.com/cornelberliba/rn-qa-challenge-app](https://github.com/cornelberliba/rn-qa-challenge-app)
+- **Latest APK Build**: [Download from Expo](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds/da3bbeaa-7fcf-49a8-8275-b0cc861d4002)
+- **Expo Dashboard**: [View All Builds](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds)
 - **Maestro Documentation**: https://maestro.mobile.dev/
 - **Developer Documentation**: [docs/README.md](./docs/README.md) - For developers working on the app
 - **Complete testID Reference**: [docs/ACCESSIBILITY_IDS.md](./docs/ACCESSIBILITY_IDS.md) - Detailed testID documentation
@@ -324,7 +332,7 @@ When reporting bugs:
 ## ❓ Frequently Asked Questions
 
 **Q: Where can I download the APK?**  
-A: Check the Expo dashboard link above, or contact the development team.
+A: Download the latest APK from [this link](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds/da3bbeaa-7fcf-49a8-8275-b0cc861d4002) or view all builds on the [Expo Dashboard](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds).
 
 **Q: The app crashes on launch. What should I do?**  
 A: Make sure you're using Android API Level 21+. Clear app data and reinstall.
@@ -342,8 +350,10 @@ A: Make sure you're using the exact testID from the reference table. TestIDs are
 
 ## 📚 Additional Resources
 
+- **GitHub Repository**: [https://github.com/cornelberliba/rn-qa-challenge-app](https://github.com/cornelberliba/rn-qa-challenge-app)
 - **For Developers**: See [docs/README.md](./docs/README.md) for development setup and technical details
 - **Complete Documentation**: All documentation is available in the `docs/` folder
+- **Latest Build**: [Download APK](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds/da3bbeaa-7fcf-49a8-8275-b0cc861d4002)
 - **Build Status**: Check [Expo Dashboard](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds) for latest builds
 
 ---

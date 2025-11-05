@@ -6,6 +6,12 @@ This document is for developers working on the QA Automation Challenge App.
 
 A React Native mobile application designed specifically for QA automation testing using Maestro. The app serves as a hands-on challenge for QA automation candidates to demonstrate their testing skills.
 
+## 🔗 Quick Links
+
+- **GitHub Repository**: [https://github.com/cornelberliba/rn-qa-challenge-app](https://github.com/cornelberliba/rn-qa-challenge-app)
+- **Latest APK Build**: [Download from Expo](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds/da3bbeaa-7fcf-49a8-8275-b0cc861d4002)
+- **Expo Dashboard**: [View All Builds](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds)
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -178,7 +184,9 @@ pnpm build:dev:android      # Build Android APK (development)
 3. Configure project: `eas build:configure`
 4. Build APK: `pnpm build:preview:android`
 
-The APK will be available for download from the Expo dashboard: https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds
+The APK will be available for download from the Expo dashboard:
+- **Latest Build**: [Download APK](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds/da3bbeaa-7fcf-49a8-8275-b0cc861d4002)
+- **All Builds**: [Expo Dashboard](https://expo.dev/accounts/cornel.berliba/projects/qa-automation-challenge/builds)
 
 ### APK Requirements
 
@@ -214,9 +222,10 @@ appId: com.cornelberliba.qaAutomationChallenge
 
 ## 📚 Documentation
 
+- **GitHub Repository**: [https://github.com/cornelberliba/rn-qa-challenge-app](https://github.com/cornelberliba/rn-qa-challenge-app)
 - [PRD](./PRD.md) - Product Requirements Document
 - [PLAN](./PLAN.md) - Implementation Plan
-- [TASKS](../TASKS.md) - Progress Tracking
+- [TASKS](./TASKS.md) - Progress Tracking
 - [Accessibility IDs](./ACCESSIBILITY_IDS.md) - Complete testID reference
 - [QA Testing Guide](../README.md) - QA-specific testing documentation
 
