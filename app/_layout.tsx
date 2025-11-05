@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Appearance, Platform } from 'react-native';
 
-import { ThemeToggle } from '~/components/ThemeToggle';
+import { OnboardingToggleButton } from '~/components/OnboardingToggleButton';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
 import { NAV_THEME } from '~/lib/constants';
 import { useColorScheme } from '~/lib/useColorScheme';
@@ -23,7 +23,7 @@ const DARK_THEME: Theme = {
 
 export {
   // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
+  ErrorBoundary
 } from 'expo-router';
 
 const usePlatformSpecificSetup = Platform.select({
@@ -39,16 +39,18 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-      <Stack>
-        <Stack.Screen
-          name='index'
-          options={{
-            title: 'Starter Base',
-            headerRight: () => <ThemeToggle />,
-          }}
-        />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name='index' />
+        <Stack.Screen name='(onboarding)' options={{ headerShown: false }} />
+        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
       </Stack>
       <PortalHost />
+      <OnboardingToggleButton />
     </ThemeProvider>
   );
 }
@@ -69,4 +71,4 @@ function useSetAndroidNavigationBar() {
   }, []);
 }
 
-function noop() {}
+function noop() { }

@@ -1,0 +1,171 @@
+---
+alwaysApply: true
+---
+
+# QA Automation Challenge App - Cursor AI Rules
+
+## Project Context
+This is a React Native app built with Expo, shadcn/ui, and NativeWind for QA automation testing purposes. The app is intentionally simple and includes deliberate bugs for testing.
+
+## Architecture Rules
+
+### Rule 1: File-Based Routing with Expo Router
+- **ALWAYS use Expo Router** for navigation (file-based routing in `/app` directory)
+- **NEVER use React Navigation Stack** directly - Expo Router handles this
+- **Screen placement:**
+  - Onboarding screens: `/app/(onboarding)/screen1.tsx`, `screen2.tsx`, `screen3.tsx`
+  - Auth screens: `/app/(auth)/login.tsx`, `signup.tsx`
+  - Main screens: `/app/(tabs)/home.tsx`
+- **Navigation syntax:**
+```typescript
+  import { router } from 'expo-router';
+  
+  // Navigate to screen
+  router.push('/(auth)/login');
+  
+  // Replace screen (no back)
+  router.replace('/(tabs)/home');
+  
+  // Go back
+  router.back();
+```
+- **Layout files:** Use `_layout.tsx` in each route group for shared navigation logic
+
+### Rule 2: Component Architecture with shadcn/ui + NativeWind
+- **UI Components:**
+  - **ALWAYS use shadcn/ui components** from `/components/ui/` for base elements
+  - **Style with NativeWind** (Tailwind CSS classes) - NO StyleSheet.create()
+  - **Customize shadcn components** in `/components/ui/` if needed, DON'T create duplicates
+  
+- **Component hierarchy:**
+```
+  /components/ui/          → shadcn primitives (button, input, text, card)
+  /components/             → App-specific composed components
+  /app/(routes)/           → Screen components (pages)
+```
+
+- **Styling pattern:**
+```typescript
+  // ✅ CORRECT - Use NativeWind classes
+  <View className="flex-1 justify-center items-center bg-white p-4">
+    <Text className="text-2xl font-bold text-gray-900">Welcome</Text>
+  </View>
+  
+  // ❌ WRONG - Don't use StyleSheet
+  const styles = StyleSheet.create({
+    container: { flex: 1 }
+  });
+```
+
+- **Custom components:**
+  - Wrap shadcn/ui components when you need app-specific logic
+  - Example: `CustomButton.tsx` wraps `ui/button.tsx` and adds testID
+```typescript
+  // components/CustomButton.tsx
+  import { Button } from '@/components/ui/button';
+  
+  export function CustomButton({ testID, ...props }) {
+    return <Button testID={testID} {...props} />;
+  }
+```
+
+## Additional Guidelines
+
+### Accessibility IDs (testID)
+- **ALWAYS add testID** to interactive elements (buttons, inputs)
+- **Import from constants:**
+```typescript
+  import { TEST_IDS } from '@/constants/testIDs';
+  
+  <Button testID={TEST_IDS.login.button}>Login</Button>
+```
+
+### AsyncStorage
+- **Use wrapper functions** from `/lib/storage.ts`
+- **Never call AsyncStorage directly** in components
+```typescript
+  // lib/storage.ts
+  export const setOnboardingComplete = () => 
+    AsyncStorage.setItem('onboardingComplete', 'true');
+  
+  // In component
+  import { setOnboardingComplete } from '@/lib/storage';
+  await setOnboardingComplete();
+```
+
+### TypeScript
+- **Use TypeScript** for all files (.tsx, .ts)
+- **Define types** for props, storage keys, and navigation params
+- **No 'any' types** - use proper interfaces
+
+### Intentional Bugs
+- **Mark intentional bugs** with comments:
+```typescript
+  // 🐛 INTENTIONAL BUG: Email field has autoCapitalize enabled
+  <TextInput
+    testID="email"
+    autoCapitalize="words" // Should be "none"
+  />
+```
+
+### File Naming
+- **Screens:** lowercase with hyphens (e.g., `login.tsx`, `screen1.tsx`)
+- **Components:** PascalCase (e.g., `CustomButton.tsx`)
+- **Utils/Lib:** camelCase (e.g., `storage.ts`, `utils.ts`)
+
+## Don'ts
+- ❌ Don't use React Navigation directly (use Expo Router)
+- ❌ Don't use StyleSheet.create (use NativeWind classes)
+- ❌ Don't create custom UI components if shadcn/ui has equivalent
+- ❌ Don't hardcode strings (use constants)
+- ❌ Don't call AsyncStorage directly (use storage helpers)
+- ❌ Don't forget testID on interactive elements
+- ❌ Don't use inline styles (use className with Tailwind)
+
+## Testing Considerations
+- This app is designed for Maestro automation testing
+- All interactive elements MUST have unique testID values
+- Keep UI simple and predictable (avoid complex animations)
+- Async operations should have consistent delays (2-3 seconds)
+
+## Example Component Structure
+```typescript
+// app/(auth)/login.tsx
+import { View } from 'react-native';
+import { router } from 'expo-router';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { TEST_IDS } from '@/constants/testIDs';
+import { login } from '@/lib/storage';
+
+export default function LoginScreen() {
+  const handleLogin = async () => {
+    // Simulate async login (2-3 sec delay)
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    await login(email, password);
+    router.replace('/(tabs)/home');
+  };
+
+  return (
+    <View className="flex-1 justify-center p-6 bg-white">
+      <Input
+        testID={TEST_IDS.auth.email}
+        placeholder="Email"
+        className="mb-4"
+      />
+      <Input
+        testID={TEST_IDS.auth.password}
+        placeholder="Password"
+        secureTextEntry
+        className="mb-6"
+      />
+      <Button
+        testID={TEST_IDS.auth.loginButton}
+        onPress={handleLogin}
+      >
+        Login
+      </Button>
+    </View>
+  );
+}
+```
